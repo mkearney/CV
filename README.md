@@ -12,7 +12,7 @@ Built using \LaTeX.
 
 
 ```r
-system("xelatex tex/CV.tex")
+system("xelatex cv.tex")
 system("rm *.out *.log *.aux")
 ```
 
