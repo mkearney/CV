@@ -1,0 +1,23 @@
+---
+title: "VITA"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+```
+
+## My CV repo
+
+Built using \\LaTeX.
+
+```{r compile}
+## compile into PDF
+system("xelatex tex/CV.tex")
+
+## remove auxiliary files
+system("rm *.out *.log *.aux *.synctex.gz")
+
+## open PDF
+browseURL("cv.pdf")
+```

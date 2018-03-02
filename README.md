@@ -1,20 +1,17 @@
----
-title: "VITA"
-date: "2017-09-24 15:17:58"
-output: prettysimplemd::psm_document
----
-
-
+VITA
+================
 
 ## My CV repo
 
-Built using \LaTeX.
+Built using \\LaTeX.
 
+``` r
+## compile into PDF
+system("xelatex tex/CV.tex")
 
-```r
-system("xelatex cv.tex")
+## remove auxiliary files
 system("rm *.out *.log *.aux")
+
+## open PDF
+browseURL("cv.pdf")
 ```
-
-
-
