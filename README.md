@@ -1,16 +1,17 @@
 VITA
 ================
 
-## My CV repo
+My CV repo
+----------
 
 Built using \\LaTeX.
 
 ``` r
 ## compile into PDF
-system("xelatex tex/CV.tex")
+system("xelatex cv.tex")
 
 ## remove auxiliary files
-system("rm *.out *.log *.aux")
+system("rm *.out *.log *.aux *.synctex.gz")
 
 ## open PDF
 browseURL("cv.pdf")
