@@ -1,8 +1,7 @@
 VITA
 ================
 
-My CV repo
-----------
+## My CV repo
 
 Built using \\LaTeX.
 
