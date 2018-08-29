@@ -18,6 +18,10 @@ system("xelatex cv.tex")
 ## remove auxiliary files
 system("rm *.out *.log *.aux *.synctex.gz")
 
+if (file.exists("~/Website/mikewk.com")) {
+  system("cp cv.pdf ~/Website/mikewk.com/static/cv/cv.pdf")
+}
+
 ## open PDF
 browseURL("cv.pdf")
 ```
