@@ -1,27 +1,35 @@
 ---
-title: "VITA"
-output: github_document
+output: 
+  github_document:
+    includes:
+      in_header: static/header.html
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## My CV repo
 
-Built using \\LaTeX.
+## My CV
 
-```{r compile}
+
+Built using \\LaTeX. See the source code here: https://github.com/mkearney/CV
+
+
+```{r compile, include = FALSE}
 ## compile into PDF
 system("xelatex cv.tex")
 
 ## remove auxiliary files
 system("rm *.out *.log *.aux *.synctex.gz")
-
-if (file.exists("~/Website/mikewk.com")) {
-  system("cp cv.pdf ~/Website/mikewk.com/static/cv/cv.pdf")
-}
-
-## open PDF
-browseURL("cv.pdf")
 ```
+
+<h3 class="redirecting"><a href="https://cv.mikewk.com/cv.pdf">Redirecting...</a></h3>
+
+
+<style>
+.redirecting {
+  font-size: 4em;
+  text-align: center;
+}
+</style>

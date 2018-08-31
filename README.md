@@ -1,21 +1,22 @@
-VITA
-================
 
-## My CV repo
+  <head>
+    <meta http-equiv="refresh" content="0 url=https://cv.mikewk.com/cv.pdf" />
+  </head>
 
-Built using \\LaTeX.
+## My CV
 
-``` r
-## compile into PDF
-system("xelatex cv.tex")
+Built using \\LaTeX. See the source code here:
+<https://github.com/mkearney/CV>
 
-## remove auxiliary files
-system("rm *.out *.log *.aux *.synctex.gz")
+<h3 class="redirecting">
 
-if (file.exists("~/Website/mikewk.com")) {
-  system("cp cv.pdf ~/Website/mikewk.com/static/cv/cv.pdf")
+<a href="https://cv.mikewk.com/cv.pdf">Redirecting…</a>
+
+</h3>
+
+<style>
+.redirecting {
+  font-size: 4em;
+  text-align: center;
 }
-
-## open PDF
-browseURL("cv.pdf")
-```
+</style>
