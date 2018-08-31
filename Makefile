@@ -1,9 +1,9 @@
 .PHONY: all clean
 all:
-	@echo Build all
+	@echo Compiling CV...
 	xelatex cv.tex
 	rm *.out *.log *.aux
 	open -a preview cv.pdf
 clean:
-	@echo Clean all
+	@echo Removing aux files...
 	rm *.out *.log *.aux
