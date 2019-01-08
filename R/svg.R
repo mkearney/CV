@@ -39,6 +39,10 @@ zenodo_badge <- function(num, file = NULL) {
 
 downloads_badge("rtweet", "yellowgreen", "img/rtweet-downloads.pdf")
 downloads_badge("textfeatures", "yellowgreen", "img/textfeatures-downloads.pdf")
+downloads_badge("tfse", "yellowgreen", "img/tfse-downloads.pdf")
+downloads_badge("tbltools", "yellowgreen", "img/tbltools-downloads.pdf")
+downloads_badge("funique", "yellowgreen", "img/funique-downloads.pdf")
+downloads_badge("pkgverse", "yellowgreen", "img/pkgverse-downloads.pdf")
 
 
 dapr = "153846249"
