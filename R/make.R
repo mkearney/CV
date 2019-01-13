@@ -50,6 +50,8 @@ format_author_name <- function(name) {
   paste(x, collapse = ", ")
 }
 
+make_cv()
+
 format_articles <- function() {
   author <- sapply(x$author, format_author_name)
   author <- paste0("\\item ", author)
@@ -92,5 +94,9 @@ format_articles <- function() {
 #x <- bib2df::bib2df("~/Dropbox/gs.bib")
 #names(x) <- tolower(names(x))
 #format_articles(x)
-make_cv()
 
+#a <- bibtex::read.bib("tex/articles-bib.bib")
+#o <- capture.output(print(a, style = "latex"))
+#tmp <- tempfile(fileext = ".tex")
+#cat(tfse:::paste_lines(o), file = tmp)
+#system(glue::glue("open -a rstudio {tmp}"))
