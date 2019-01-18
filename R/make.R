@@ -6,9 +6,9 @@ if (!requireNamespace("tfse", quietly = TRUE)) {
   remotes::install_github("mkearney/tfse")
 }
 
-## install {here}
-if (!requireNamespace("here", quietly = TRUE)) {
-  install.packages("here")
+## install {fml}
+if (!requireNamespace("fml", quietly = TRUE)) {
+  remotes::install_github("mkearney/fml")
 }
 
 ## check for xelatex
@@ -23,15 +23,18 @@ if (identical(Sys.which("xelatex"), "")) {
 
 make_cv <- function() {
   tfse::print_start("Updating badges...")
-  source(here::here("R/svg.R"))
+  source(fml::find_file("R/svg.R"))
   tfse::print_complete("Badges up to date")
-  cv.tex <- here::here("cv.tex")
+  cv.tex <- fml::find_file("cv.tex")
   tfse::print_start("Compiling CV...")
+  sh <- system(glue::glue("xelatex {cv.tex}"), intern = TRUE)
   sh <- system(glue::glue("xelatex {cv.tex}"), intern = TRUE)
   tfse::print_complete("CV successfully built!")
   tfse::print_start("Removing build files...")
-  .aux <- paste0(dirname(cv.tex), "/", c("*.out", "*.log", "*.aux"))
-  sh <- lapply(glue::glue("rm {.aux}"), system)
+  cv.build <- list.files(fml::dir_name(cv.tex),
+    pattern = "cv\\.", full.names = TRUE)
+  cv.build <- grep("\\.tex$|\\.pdf$", cv.build, invert = TRUE, value = TRUE)
+  unlink(cv.build)
   tfse::print_complete("All cleaned up!")
 }
 
