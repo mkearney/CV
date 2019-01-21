@@ -41,6 +41,7 @@ zenodo_badge <- function(num, file = NULL) {
   invisible(file)
 }
 
+downloads_badge("dapr", "yellowgreen", here::here("img", "dapr-downloads.pdf"))
 downloads_badge("rtweet", "yellowgreen", here::here("img", "rtweet-downloads.pdf"))
 downloads_badge("textfeatures", "yellowgreen", here::here("img", "textfeatures-downloads.pdf"))
 downloads_badge("tfse", "yellowgreen", here::here("img", "tfse-downloads.pdf"))
