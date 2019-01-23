@@ -74,3 +74,8 @@ if (FALSE) {
   zenodo_badge(textfeatures, here::here("img", "textfeatures-doi.pdf"))
   zenodo_badge(rtweet, here::here("img", "rtweet-doi.pdf"))
 }
+
+## add to git, commit, and push
+git2r::add(path = ".")
+git2r::commit(message = "update")
+git2r::push()
