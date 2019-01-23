@@ -23,9 +23,9 @@ if (identical(Sys.which("xelatex"), "")) {
 
 make_cv <- function() {
   tfse::print_start("Updating badges...")
-  source(fml::find_file("R/svg.R"))
+  source(here::here("R", "svg.R"))
   tfse::print_complete("Badges up to date")
-  cv.tex <- fml::find_file("cv.tex")
+  cv.tex <- here::here("cv.tex")
   tfse::print_start("Compiling CV...")
   sh <- system(glue::glue("xelatex {cv.tex}"), intern = TRUE)
   sh <- system(glue::glue("xelatex {cv.tex}"), intern = TRUE)
