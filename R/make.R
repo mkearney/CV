@@ -107,6 +107,7 @@ format_articles <- function() {
 
 
 ## add to git, commit, and push
+system("pull")
 git2r::add(path = ".")
 git2r::commit(message = "update")
 system("git push")
