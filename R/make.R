@@ -103,3 +103,10 @@ format_articles <- function() {
 #tmp <- tempfile(fileext = ".tex")
 #cat(tfse:::paste_lines(o), file = tmp)
 #system(glue::glue("open -a rstudio {tmp}"))
+
+
+
+## add to git, commit, and push
+git2r::add(path = ".")
+git2r::commit(message = "update")
+git2r::push()
