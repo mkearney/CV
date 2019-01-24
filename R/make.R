@@ -55,59 +55,9 @@ format_author_name <- function(name) {
 
 make_cv()
 
-format_articles <- function() {
-  author <- sapply(x$author, format_author_name)
-  author <- paste0("\\item ", author)
-  x$volume[is.na(x$volume)] <- ""
-  if (!"booktitle" %in% names(x)) {
-    x$booktitle <- NA_character_
-  }
-  x$journal[is.na(x$journal) && !is.na(x$booktitle)] <- x$booktitle[
-    is.na(x$journal) && !is.na(x$booktitle)]
-  x$journal[is.na(x$journal)] <- ""
-  x$pages[is.na(x$pages)] <- ""
-  journal <- ifelse(
-    "" == x$volume & "" == x$pages,
-    paste0("\\textit{", x$journal, "}."),
-    ifelse(
-      "" == x$volume,
-      paste0("\\textit{", x$journal, "}, ", x$pages, "."),
-      ifelse(x$pages == "",
-        paste0("\\textit{", x$journal, "., ", x$volume, "}."),
-        paste0("\\textit{", x$journal, "., ", x$volume, "}.", " ",
-          x$pages, "."))
-  ))
-  title <- x$title
-  year <- paste0("(", x$year, ")")
-  if (!"doi" %in% names(x)) {
-    x$doi <- ""
-  }
-  x$doi[is.na(x$doi)] <- ""
-  doi <- sub("https?://doi.org/", "", x$doi)
-  doi <- ifelse(doi == "", "\n",
-    paste0("\\href{https://doi.org/", doi, "}{", doi, "}\n"))
-  entries <- paste0(
-    author, " ", year, ".\n    ",
-    title, ",\n    ",
-    journal, "\n    ",
-    doi
-  )
-  entries
-}
-#x <- bib2df::bib2df("~/Dropbox/gs.bib")
-#names(x) <- tolower(names(x))
-#format_articles(x)
-
-#a <- bibtex::read.bib("tex/articles-bib.bib")
-#o <- capture.output(print(a, style = "latex"))
-#tmp <- tempfile(fileext = ".tex")
-#cat(tfse:::paste_lines(o), file = tmp)
-#system(glue::glue("open -a rstudio {tmp}"))
-
-
-
 ## add to git, commit, and push
-system("pull")
+setwd(here::here("."))
+system("git pull")
 git2r::add(path = ".")
 git2r::commit(message = "update")
 system("git push")
