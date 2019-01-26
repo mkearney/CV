@@ -23,9 +23,9 @@ if (identical(Sys.which("xelatex"), "")) {
 
 make_cv <- function() {
   tfse::print_start("Updating badges...")
-  source(here::here("R", "svg.R"))
+  source(fml::here("R", "svg.R"))
   tfse::print_complete("Badges up to date")
-  cv.tex <- here::here("cv.tex")
+  cv.tex <- fml::here("cv.tex")
   tfse::print_start("Compiling CV...")
   sh <- system(glue::glue("xelatex {cv.tex}"), intern = TRUE)
   sh <- system(glue::glue("xelatex {cv.tex}"), intern = TRUE)
@@ -56,7 +56,7 @@ format_author_name <- function(name) {
 make_cv()
 
 ## add to git, commit, and push
-setwd(here::here("."))
+setwd(fml::here("."))
 system("git pull")
 git2r::add(path = ".")
 git2r::commit(message = "update")
