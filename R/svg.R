@@ -1,9 +1,25 @@
-
+#https://www.r-pkg.org/badges/last-release/rtweet
 ## possible colors
 ##"brightgreen", "green", "yellowgreen", "yellow", "orange", "red", "lightgrey", "blue"
 
 download_file <- function(url, destfile) {
   download.file(url, destfile, quiet = TRUE)
+}
+
+cran_badge <- function(pkg, file = NULL) {
+  url <- paste0(
+    "https://www.r-pkg.org/badges/last-release/", pkg, "?color=green"
+  )
+  tmp <- tempfile()
+  download_file(url, destfile = tmp)
+  x <- tfse::readlines(tmp)
+  x <- sub('.*font-size="11"',
+    '     font-size="14" font-family="Adobe Garamond Pro"', x)
+  tmp2 <- tempfile(fileext = ".svg")
+  writeLines(x, tmp2)
+  save_as <- fml::here("img", sprintf("%s-cran.pdf", pkg))
+  rsvg::rsvg_pdf(tmp2, save_as)
+  invisible(file)
 }
 
 downloads_badge <- function(pkg, color, file = NULL) {
@@ -42,19 +58,19 @@ zenodo_badge <- function(num, file = NULL) {
   invisible(file)
 }
 
-downloads_badge("dapr", "yellowgreen",
+downloads_badge("dapr", "ff69b4",
   here::here("img", "dapr-downloads.pdf"))
-downloads_badge("rtweet", "yellowgreen",
+downloads_badge("rtweet", "ff69b4",
   here::here("img", "rtweet-downloads.pdf"))
-downloads_badge("textfeatures", "yellowgreen",
+downloads_badge("textfeatures", "ff69b4",
   here::here("img", "textfeatures-downloads.pdf"))
-downloads_badge("tfse", "yellowgreen",
+downloads_badge("tfse", "ff69b4",
   here::here("img", "tfse-downloads.pdf"))
-downloads_badge("tbltools", "yellowgreen",
+downloads_badge("tbltools", "ff69b4",
   here::here("img", "tbltools-downloads.pdf"))
-downloads_badge("funique", "yellowgreen",
+downloads_badge("funique", "ff69b4",
   here::here("img", "funique-downloads.pdf"))
-downloads_badge("pkgverse", "yellowgreen",
+downloads_badge("pkgverse", "ff69b4",
   here::here("img", "pkgverse-downloads.pdf"))
 
 if (FALSE) {
@@ -73,4 +89,15 @@ if (FALSE) {
   zenodo_badge(funique, here::here("img", "funique-doi.pdf"))
   zenodo_badge(textfeatures, here::here("img", "textfeatures-doi.pdf"))
   zenodo_badge(rtweet, here::here("img", "rtweet-doi.pdf"))
+}
+
+
+if (TRUE) {
+  cran_badge("dapr")
+  cran_badge("pkgverse")
+  cran_badge("tbltools")
+  cran_badge("tfse")
+  cran_badge("funique")
+  cran_badge("textfeatures")
+  cran_badge("rtweet")
 }
