@@ -55,6 +55,7 @@ format_author_name <- function(name) {
 
 make_cv()
 
+
 ## add to git, commit, and push
 setwd(fml::here("."))
 system("git pull")
