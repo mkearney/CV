@@ -13,7 +13,7 @@ cran_badge <- function(pkg, file = NULL) {
   tmp <- tempfile()
   download_file(url, destfile = tmp)
   x <- tfse::readlines(tmp)
-  x <- gsub('font-size="11"', 'font-size="12"', x)
+  x <- gsub('font-size="11"', 'font-size="13"', x)
   tmp2 <- tempfile(fileext = ".svg")
   writeLines(x, tmp2)
   save_as <- fml::here("img", sprintf("%s-cran.pdf", pkg))
@@ -29,7 +29,7 @@ downloads_badge <- function(pkg, color, file = NULL) {
   tmp <- tempfile()
   download_file(url, destfile = tmp)
   x <- tfse::readlines(tmp)
-  x <- gsub('font-size="11"', 'font-size="12"', x)
+  x <- gsub('font-size="11"', 'font-size="13"', x)
   tmp2 <- tempfile(fileext = ".svg")
   writeLines(x, tmp2)
   if (is.null(file)) {
@@ -44,7 +44,7 @@ zenodo_badge <- function(num, file = NULL) {
   tmp <- tempfile()
   download_file(url, destfile = tmp)
   x <- tfse::readlines(tmp)
-  x <- gsub('font-size="11"', 'font-size="12"', x)
+  x <- gsub('font-size="11"', 'font-size="13"', x)
   tmp2 <- tempfile(fileext = ".svg")
   writeLines(x, tmp2)
   if (is.null(file)) {
