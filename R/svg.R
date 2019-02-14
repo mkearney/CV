@@ -8,7 +8,7 @@ download_file <- function(url, destfile) {
 
 cran_badge <- function(pkg, file = NULL) {
   url <- paste0(
-    "https://www.r-pkg.org/badges/last-release/", pkg, "?color=green"
+    "http://www.r-pkg.org/badges/version/", pkg, "?color=green"
   )
   tmp <- tempfile()
   download_file(url, destfile = tmp)
