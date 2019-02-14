@@ -54,7 +54,7 @@ zenodo_badge <- function(num, file = NULL) {
   invisible(file)
 }
 
-if (grep("darwin", R.version$os)) {
+if (grepl("darwin", R.version$os)) {
 
   downloads_badge("dapr", "ff69b4",
     here::here("img", "dapr-downloads.pdf"))
