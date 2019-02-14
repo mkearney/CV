@@ -29,7 +29,7 @@ downloads_badge <- function(pkg, color, file = NULL) {
   tmp <- tempfile()
   download_file(url, destfile = tmp)
   x <- tfse::readlines(tmp)
-  x <- gsub('font-size="11"', 'font-size="13"', x)
+  x <- gsub('font-size="11"', 'font-size="14"', x)
   tmp2 <- tempfile(fileext = ".svg")
   writeLines(x, tmp2)
   if (is.null(file)) {
@@ -69,7 +69,7 @@ downloads_badge("funique", "ff69b4",
 downloads_badge("pkgverse", "ff69b4",
   here::here("img", "pkgverse-downloads.pdf"))
 
-if (FALSE) {
+if (TRUE) {
   dapr = "153846249"
   pkgverse = "136514892"
   tbltools  = "152122857"
