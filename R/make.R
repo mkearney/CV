@@ -11,6 +11,16 @@ if (!requireNamespace("fml", quietly = TRUE)) {
   remotes::install_github("mkearney/fml")
 }
 
+## install {here}
+if (!requireNamespace("here", quietly = TRUE)) {
+  remotes::install_github("r-lib/here")
+}
+
+## install {rsvg}
+if (!requireNamespace("rsvg", quietly = TRUE)) {
+  install.packages("rsvg")
+}
+
 ## check for xelatex
 if (identical(Sys.which("xelatex"), "")) {
   m <- tfse::pmsg(
