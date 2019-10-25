@@ -56,10 +56,10 @@ zenodo_badge <- function(num, file = NULL) {
 
 if (grepl("darwin", R.version$os)) {
 
-  downloads_badge("dapr", "ff69b4",
-    here::here("img", "dapr-downloads.pdf"))
-  downloads_badge("dapr", "ff69b4",
-    here::here("img", "dapr-downloads.pdf"))
+  downloads_badge("googler", "ff69b4",
+    here::here("img", "googler-downloads.pdf"))
+  downloads_badge("readthat", "ff69b4",
+    here::here("img", "readthat-downloads.pdf"))
   downloads_badge("dapr", "ff69b4",
     here::here("img", "dapr-downloads.pdf"))
   downloads_badge("rtweet", "ff69b4",
