@@ -33,7 +33,10 @@ if (identical(Sys.which("xelatex"), "")) {
 
 make_cv <- function() {
   tfse::print_start("Updating badges...")
-  source(fml::here("R", "svg.R"))
+  if (!file.exists(svg.r <- "R/svg.R")) {
+    svg.r <- "../R/svg.R"
+  }
+  source(svg.r)
   tfse::print_complete("Badges up to date")
   cv.tex <- fml::here("cv.tex")
   tfse::print_start("Compiling CV...")
