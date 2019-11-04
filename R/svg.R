@@ -98,7 +98,7 @@ zenodo_badge(textfeatures, file.path(img, "textfeatures-doi.pdf"))
 zenodo_badge(rtweet, file.path(img, "rtweet-doi.pdf"))
 
 
-if (TRUE) {
+if (FALSE) {
   cran_badge("googler")
   cran_badge("readthat")
   cran_badge("dapr")
