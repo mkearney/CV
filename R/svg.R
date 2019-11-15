@@ -47,7 +47,7 @@ zenodo_badge <- function(num, file = NULL) {
   tmp <- tempfile()
   download_file(url, destfile = tmp)
   x <- tfse::readlines(tmp)
-  x <- gsub('font-size="11"', 'font-size="13"', x)
+  x <- gsub('font-size="11"', 'font-size="10"', x)
   tmp2 <- tempfile(fileext = ".svg")
   writeLines(x, tmp2)
   if (is.null(file)) {
@@ -80,7 +80,7 @@ downloads_badge("pkgverse", "ff69b4",
   file.path(img, "pkgverse-downloads.pdf"))
 
 googler = "205187636"
-readthat = "20985412"
+readthat = "DOI/10.5281/zenodo.3519339"
 dapr = "153846249"
 pkgverse = "136514892"
 tfse = "62493045"
@@ -88,8 +88,8 @@ funique = "133566034"
 textfeatures = "123046986"
 rtweet = "64161359"
 
-zenodo_badge(dapr, file.path(img, "googler-doi.pdf"))
-zenodo_badge(dapr, file.path(img, "readthat-doi.pdf"))
+zenodo_badge(googler, file.path(img, "googler-doi.pdf"))
+zenodo_badge(readthat, file.path(img, "readthat-doi.pdf"))
 zenodo_badge(dapr, file.path(img, "dapr-doi.pdf"))
 zenodo_badge(pkgverse, file.path(img, "pkgverse-doi.pdf"))
 zenodo_badge(tfse, file.path(img, "tfse-doi.pdf"))
@@ -98,7 +98,7 @@ zenodo_badge(textfeatures, file.path(img, "textfeatures-doi.pdf"))
 zenodo_badge(rtweet, file.path(img, "rtweet-doi.pdf"))
 
 
-if (FALSE) {
+if (TRUE) {
   cran_badge("googler")
   cran_badge("readthat")
   cran_badge("dapr")
