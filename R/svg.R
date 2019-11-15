@@ -8,12 +8,12 @@ download_file <- function(url, destfile) {
 
 cran_badge <- function(pkg, file = NULL) {
   url <- paste0(
-    "http://www.r-pkgs.org/badges/version/", pkg, "?color=green"
+    "http://www.r-pkg.org/badges/version/", pkg, "?color=green"
   )
   tmp <- tempfile()
   download_file(url, destfile = tmp)
   x <- tfse::readlines(tmp)
-  x <- gsub('font-size="11"', 'font-size="12"', x)
+  x <- gsub('font-size="11"', 'font-size="10"', x)
   tmp2 <- tempfile(fileext = ".svg")
   writeLines(x, tmp2)
   if (!dir.exists(img <- "img")) {
@@ -32,7 +32,7 @@ downloads_badge <- function(pkg, color, file = NULL) {
   tmp <- tempfile()
   download_file(url, destfile = tmp)
   x <- tfse::readlines(tmp)
-  x <- gsub('font-size="11"', 'font-size="13"', x)
+  x <- gsub('font-size="11"', 'font-size="10"', x)
   tmp2 <- tempfile(fileext = ".svg")
   writeLines(x, tmp2)
   if (is.null(file)) {
